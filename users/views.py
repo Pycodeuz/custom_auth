@@ -48,11 +48,11 @@ class LoginView(APIView):
 
         login(request, user)
         user.refresh_from_db()
-        user.verification_code = random.randint(100000, 999999)
-        user.save()
-
-        send_email.delay(user.email, user.verification_code)
-        messages.success(request, 'Verification code sent to your email. Please check your mail.')
+        # user.verification_code = random.randint(100000, 999999)
+        # user.save()
+        #
+        # send_email.delay(user.email, user.verification_code)
+        # messages.success(request, 'Verification code sent to your email. Please check your mail.')
 
         serializer = UserLoginSerializer(user)
 
